@@ -1,0 +1,73 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+body {
+	/*padding: 10px;
+	margin: 10px;*/
+	/*border: solid 2px #CACACA;*/
+}
+.headLinks{
+	float:right;
+}
+.headLinks a{
+	margin:10px;
+}
+.nav li:active,.nav li a:hover {background-color:#8CB3E3 !important;}
+.nav li{background-color:#7F7F7F;border-radius:3px;}
+.nav li a {color:white;}
+.containerPage{padding:50px;}
+table th{background-color:#A5A5A5;}
+table tr.even{background-color:#CBCBCB;}
+table tr.odd{background-color:#F2F2F2;}
+.data-table tbody tr td{
+    height: 50px;
+}
+.page-menu nav{
+    
+}
+.page-menu .nav li:active,.nav li a:hover {background-color:#90B3DF !important;}
+.page-menu .nav li{background-color:#F2F2F2;border-radius:5px;}
+.page-menu .nav li a:active {color:white;}
+.page-menu .nav li a {color:black;}
+.page-menu .nav-tabs > li.active > a,.page-menu .nav-tabs > li.active > a:hover,.page-menu .nav-tabs > li.active > a:focus {
+background-color: #90B3DF;
+border: 1px solid #dddddd;
+}
+.page-menu  .nav-tabs > li.active > a,.page-menu  .nav-tabs > li.active > a:hover,.page-menu  .nav-tabs > li.active > a:focus {
+    color:white;
+}
+.edit-table{
+    width: 70%;
+    margin: 10px;
+}
+.edit-table th{background-color:#A5A5A5;}
+.edit-table tr.even{background-color: white;}
+.edit-table tr.odd{background-color:#F2F2F2;}

@@ -1,0 +1,125 @@
+.add_resident{
+    background-color: #D3D3D3;
+    padding-bottom: 30px;
+}
+.row label{
+    float:left;
+}
+.row input, .row select{
+    
+}
+.row{
+   /* margin-left: 30px !important;*/
+    height:46px;
+}
+.leftPanel{
+    float:left;
+    /*margin-top: 20px;*/
+    width:20%;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+.rightPanel{
+    padding-top: 20px;
+    margin-left: 21.5%;
+    background-color: white;
+    padding: 4%;
+    width: 67%;
+}
+.leftDiv{
+   /* width: 130px;*/
+    
+    padding: 5%;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 30px;
+    /*cursor: pointer;*/
+}
+#resident_text{
+    text-align: left;
+    font-size: 21px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 18px;
+    border-bottom: 1px solid white;
+}
+.divactive{
+    background-color: white;
+}
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+.formLabel{
+    text-align: right;
+    width: 30%;
+}
+.row input[type="text"], .row span{
+    float: left;
+    width: 30%;
+    margin-left: 30px;
+}
+.row select{
+    float: left;
+    width:32%;
+    margin-left: 30px;
+}
+.row input[type="checkbox"]:nth-of-type(1),.row input[type="button"]:nth-of-type(1),.row input[type="radio"]:nth-of-type(1),.row img{
+    margin-left: 30px;
+}
+.row label{
+    cursor: default !important;
+}
+.row input[type="checkbox"]{
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: -2px;
+}
+.row label.error{
+    color: red;
+    margin-left: 10px;
+    float:right;
+}
+.ui-datepicker-trigger{
+    margin-left: -25px !important;
+    margin-top: 4px;
+}
+.resident-btn{
+    margin-right: 10px;
+}
+.row input[type="radio"]{
+    margin-right: 5px;
+    margin-left: 10px;
+    margin-top: -2px;
+}
+.ui-datepicker-title select{
+    height:27px;
+}
+label.filebutton {
+    width:120px;
+    height:40px;
+    overflow:hidden;
+    position:relative;
+    background-color:#ccc;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+.data-table tbody tr td{
+    height: 35px;
+}
