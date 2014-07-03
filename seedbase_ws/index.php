@@ -1,7 +1,7 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+foreach (getallheaders() as $name => $value) {
+    if($name == 'Authorization')
+        echo "$name: $value\n";
+}
+exit;
 ?>

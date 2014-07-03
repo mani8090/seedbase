@@ -1,13 +1,13 @@
 'use strict';
 angular.module('LoginService', ['ngCookies']).
-    factory('dataService', function($http,$cookieStore) {
+    factory('loginService', function($http,$cookieStore) {
         return {
-            getData: function(hash) {          
+            login: function(hash) {          
                 return $http({
                     method: 'GET', 
-                    url: 'app/data/DataDictionaryInput.json',
+                    url: 'http://localhost/seedbase_git/seedbase/seedbase_ws',
                     headers:{
-                        'Authorization':'Raghu:1234'                       
+                        'Authorization':hash                       
                     },
                     async : false           
                 })
