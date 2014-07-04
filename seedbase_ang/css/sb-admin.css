@@ -351,3 +351,4 @@ table.dataTable thead .sorting:after {
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{ background:#05ab4b;}
 .pagination > li > a, .pagination > li > span{ color:#05ab4b;}
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th{ background:#dff0d8;}
+.login-error{ color: red; margin-left: -15px;}

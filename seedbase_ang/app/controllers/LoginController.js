@@ -8,17 +8,21 @@ Seedbase.controller('LoginController', function ($scope,loginService) {
         var password = $scope.password;
         var crypted = $scope.crypt(username,password);
         console.log(crypted);
-        if($.trim(username) === '' || $.trim(password) === ''){
+        console.log("Username "+$.trim(username));
+        console.log("Password "+$.trim(password));
+        if($.trim(username) == '' || $.trim(password) == ''){
             $scope.loginErrorMessage = 'Please enter credentials';
             return false; 
         }
         else{
             $scope.loginErrorMessage = '';
             loginService.login(crypted).
-                success(function(data, status, headers, config) {
-                    //$('#lightbox').hide();
+                success(function(data, status, headers, config) {                    
                     $scope.loginErrorMessage ='';
-                    console.log(JSON.stringify(data));
+                    var response = JSON.stringify(data);
+                    if(data.status == 'error'){
+                        $scope.loginErrorMessage = data.reason;
+                    }
                 }).
                 error(function(xhr, textStatus, errorThrown) {
                 

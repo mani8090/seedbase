@@ -31,11 +31,11 @@ switch ($action) {
 
             if (!$result) {
                 $response['status'] = 'error';
-                $response['reason'] = 'No rows found';
+                $response['reason'] = 'Invalid Credentials';
             }
             if (mysql_num_rows($result) == 0) {
                 $response['status'] = 'error';
-                $response['reason'] = 'No rows found';
+                $response['reason'] = 'Invalid Credentials';
             } else {
                 $data = mysql_fetch_assoc($result);
                 if ($data['password'] == sha1($password)) {
