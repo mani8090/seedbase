@@ -22,7 +22,12 @@ Seedbase.controller('LoginController', function ($scope,loginService) {
                     var response = JSON.stringify(data);
                     if(data.status == 'error'){
                         $scope.loginErrorMessage = data.reason;
+                        return false;
                     }
+                    else if(data.status == 'success'){
+                        location.href = 'home.html';
+                    }
+                    return false;
                 }).
                 error(function(xhr, textStatus, errorThrown) {
                 
