@@ -31,18 +31,18 @@ switch ($action) {
 
             if (!$result) {
                 $response['status'] = 'error';
-                $response['reason'] = 'Invalid Credentials';
+                $response['reason'] = 'Invalid credentials. Please try again.';
             }
             if (mysql_num_rows($result) == 0) {
                 $response['status'] = 'error';
-                $response['reason'] = 'Invalid Credentials';
+                $response['reason'] = 'Invalid credentials. Please try again.';
             } else {
                 $data = mysql_fetch_assoc($result);
                 if ($data['password'] == sha1($password)) {
                     $response['status'] = 'success';
                 } else {
                     $response['status'] = 'error';
-                    $response['reason'] = "Incorrect password";
+                    $response['reason'] = "Incorrect password. Please try again.";
                 }
             }
             echo json_encode($response);

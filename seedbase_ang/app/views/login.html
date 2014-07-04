@@ -1,4 +1,4 @@
-<form role="form">
+<form role="form" ng-submit="loginSubmit()">
     <fieldset>
         <legend class="text-center"> Please Sign In </legend>
         <div class="input-group">
@@ -14,6 +14,7 @@
             <div class="userError login-error">{{ loginErrorMessage }}</div>
         </div>
         <!--  Change this to a button or input when using this as a form -->
-        <a href="#/" class="btn btn-lg btn-success btn-block" id="login-btn" ng-model="loginSubmit" ng-click="loginSubmit()">Login</a>
+        <button type="submit" value="Login" class="btn btn-lg btn-success btn-block" id="login-btn" >Login</button>
+        
     </fieldset>
 </form>
