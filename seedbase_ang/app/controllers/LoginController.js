@@ -7,12 +7,12 @@ Seedbase.controller('LoginController', function ($scope,loginService) {
         var username = $scope.username;
         var password = $scope.password;
         var crypted = $scope.crypt(username,password);
-        if($.trim(username) == '' || $.trim(password) == ''){
+        console.log(crypted);
+        if($.trim(username) === '' || $.trim(password) === ''){
             $scope.loginErrorMessage = 'Please enter credentials';
             return false; 
         }
         else{
-            console.log("asdd");
             $scope.loginErrorMessage = '';
             loginService.login(crypted).
                 success(function(data, status, headers, config) {
