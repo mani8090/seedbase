@@ -1,5 +1,5 @@
 var Seedbase = angular.module("Seedbase", ['LoginService','ngCookies']);
-Seedbase.controller('LoginController', function ($scope,loginService) {
+Seedbase.controller('LoginController', function ($scope,loginService,$cookieStore) {
     
     $("#user_email").focus();
     $scope.loginSubmit = function(){
@@ -25,6 +25,10 @@ Seedbase.controller('LoginController', function ($scope,loginService) {
                         return false;
                     }
                     else if(data.status == 'success'){
+                        
+                        $cookieStore.put('userHash', crypted);
+                        $cookieStore.put('userId', window.btoa(unescape(encodeURIComponent( data.userId ))));
+                        $cookieStore.put('userName',window.btoa(unescape(encodeURIComponent( data.userName ))));
                         location.href = 'home.html';
                     }
                     return false;

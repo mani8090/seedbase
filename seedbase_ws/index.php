@@ -26,7 +26,7 @@ switch ($action) {
             echo 'Text to send if user hits Cancel button';
             die();
         } else {
-            $selectUserSql = "SELECT * FROM sb_users where username='$username'";
+            $selectUserSql = "SELECT * FROM sb_users as u JOIN sb_userinfo as ui on u.id=ui.user_id where u.username='$username' AND user_deleted=0";
             $result = mysql_query($selectUserSql);
 
             if (!$result) {
@@ -40,6 +40,8 @@ switch ($action) {
                 $data = mysql_fetch_assoc($result);
                 if ($data['password'] == sha1($password)) {
                     $response['status'] = 'success';
+                    $response['userId'] = $data['id'];
+                    $response['userName'] = $data['first_name'];
                 } else {
                     $response['status'] = 'error';
                     $response['reason'] = "Incorrect password. Please try again.";
@@ -49,7 +51,34 @@ switch ($action) {
             exit;
         }
         break;
+        
+        
+    case 'getUsers' :
+                
+                $response = array();
+                $selectUsersSql = "SELECT * FROM sb_users JOIN sb_userinfo on sb_users.id = sb_userinfo.user_id where sb_users.user_deleted=0";
+                $result = mysql_query($selectUsersSql);
 
+                if (!$result) {
+                    $response['data'] = '';
+                    $response['reason'] = 'No data found.';
+                }
+                if (mysql_num_rows($result) == 0) {
+                    $response['data'] = '';
+                    $response['reason'] = 'No data found.';
+                } else {                    
+                    while ($row = mysql_fetch_assoc($result)) {
+                        $response['data'][] = $row;                        
+                    }
+                    //echo '<pre>';print_r($response['data']);exit;
+                }
+                echo json_encode($response);exit;
+        break;
+    case 'deleteUser':
+            $id = $_REQUEST['id'];
+            $updateSql = mysql_query("UPDATE sb_users SET user_deleted=1 where id=".$id);
+            exit;
+        break;
     default:
         break;
 }
