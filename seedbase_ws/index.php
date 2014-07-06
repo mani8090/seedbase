@@ -42,6 +42,7 @@ switch ($action) {
                     $response['status'] = 'success';
                     $response['userId'] = $data['id'];
                     $response['userName'] = $data['first_name'];
+                    $insertSession = mysql_query("INSERT INTO sb_user_session (`user_id`,`type`,`time`) VALUES ('".$data['id']."','0',NOW())");
                 } else {
                     $response['status'] = 'error';
                     $response['reason'] = "Incorrect password. Please try again.";
