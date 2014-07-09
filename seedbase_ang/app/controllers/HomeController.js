@@ -1,5 +1,6 @@
 var Seedbase = angular.module("Seedbase", ['HomeService','ngCookies']);
 Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore) {
+    $scope.userDetails = false;
     if($cookieStore.get('userId') !== '' && typeof($cookieStore.get('userId')) !== 'undefined' ){
         $scope.username = decodeURIComponent(escape(window.atob( $cookieStore.get('userName') )));
         homeService.getUsers('123312').
@@ -47,6 +48,11 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
     
     $scope.info = function(id){
         
+    }
+    $scope.details = function(id){
+        $scope.userDetails = true;
+        alert("fgh");
+        return false;
     }
     
 });
