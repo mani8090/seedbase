@@ -21,6 +21,16 @@ angular.module('HomeService', ['ngCookies']).
                     },
                     async : false           
                 })
+            },
+            getUserData:function(id,hash){
+                return $http({
+                    method: 'GET', 
+                    url: 'http://localhost/seedbase_git/seedbase/seedbase_ws?action=getUserData&id='+id,
+                    headers:{
+                        'Authorization':hash                       
+                    },
+                    async : false
+                })
             }
         }
     });

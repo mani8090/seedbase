@@ -51,7 +51,12 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
     }
     $scope.details = function(id){
         $scope.userDetails = true;
-        alert("fgh");
+        homeService.getUserData(id,$cookieStore.get('userId')).
+                success(function(data,status,headers,config){
+                   // location.reload();
+                }).error(function(xhr,textStatus,errorThrown){
+                    
+                });   
         return false;
     }
     

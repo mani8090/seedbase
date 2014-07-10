@@ -80,6 +80,11 @@ switch ($action) {
             $updateSql = mysql_query("UPDATE sb_users SET user_deleted=1 where id=".$id);
             exit;
         break;
+    
+    case 'getUserData':
+                        $id = $_REQUEST['id'];
+        break;
+    
     default:
         break;
 }

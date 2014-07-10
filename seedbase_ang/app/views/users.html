@@ -1,4 +1,4 @@
-<div style="margin: 40px 0;" ng-show="{{userDetails}}">
+<div style="margin: 40px 0;" ng-show="userDetails == true">
     <div class="row">
         <div class="col-md-12">
             <!-- Nav tabs -->
@@ -44,7 +44,7 @@
                     <td  > {{user.username}} </td>
                     <td  > {{user.first_name}} </td>
                     <td  > {{user.last_name}} </td>
-                    <td class="text-center"> <span> <a href="#" class="btn btn-warning" ng-click="details(user.id)" data-user-id="{{user.id}}"><i class="fa fa-bullseye"></i>  </a></span><span> <a href="#" class="btn btn-warning" ng-click="info(user.id)" data-user-id="{{user.id}}"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info " data-user-id="{{user.id}}" ng-click="lock(user.id)"><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a ng-href="#" class="btn btn-danger" data-user-id="{{user.id}}" ng-click="deleteUser(user.id)"><i class="fa fa-times"></i>  </a></span> </td>
+                    <td class="text-center"> <span> <button class="btn btn-warning" ng-click="details(user.id)" data-user-id="{{user.id}}"><i class="fa fa-bullseye"></i>  </button></span><span> <button class="btn btn-warning" ng-click="info(user.id)" data-user-id="{{user.id}}"><i class="fa fa-warning"></i>  </button></span>  <span><button class="btn btn-info " data-user-id="{{user.id}}" ng-click="lock(user.id)"><i class="fa fa-unlock-alt"></i>  </button></span> <span> <button class="btn btn-danger" data-user-id="{{user.id}}" ng-click="deleteUser(user.id)"><i class="fa fa-times"></i>  </button></span> </td>
                 </tr>
                 <!--<tr>
                     <td  > User name 1 </td>
