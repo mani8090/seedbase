@@ -82,9 +82,35 @@ switch ($action) {
         break;
     
     case 'getUserData':
+                        $response = array();
                         $id = $_REQUEST['id'];
+                        $selectUserSql = "SELECT * from sb_users as u INNER JOIN sb_userinfo as ui ON ui.user_id=u.id  WHERE u.id =".$id;
+                        $result = mysql_query($selectUserSql);
+                        if (!$result) {
+                            $response['data'] = '';
+                            $response['reason'] = 'No data found.';
+                        }
+                        if (mysql_num_rows($result) == 0) {
+                            $response['data'] = '';
+                            $response['reason'] = 'No data found.';
+                        } else {                    
+                            while ($row = mysql_fetch_assoc($result)) {
+                                $response['data']['userdata'] = $row;                        
+                            }
+                            $sessionQuerySql = mysql_query("SELECT * FROM sb_user_session where type=0 AND user_id=".$id);
+                            while ($row = mysql_fetch_assoc($sessionQuerySql)) {
+                                $response['data']['user_session'][] = $row;                        
+                            }
+                            
+                            echo '<pre>';print_r($response['data']);exit;
+                        }
+                        echo json_encode($response);exit;
         break;
-    
+    case 'addUser':
+                echo '<pre>';
+                print_r($_REQUEST);
+                exit;
+        break;
     default:
         break;
 }

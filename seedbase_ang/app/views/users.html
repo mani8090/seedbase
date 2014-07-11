@@ -25,9 +25,10 @@
 </div>
 
 
-<div>
+<div id="usersListDiv" ng-show="usersList == true">
     <h2>Users List</h2>
     <hr>
+    <button class="text-right btn btn-default" style="float: right;padding: 5px;margin: 5px;" ng-click="userAdd()">Add User</button>
     <div class="table-responsive">
         <table class="table table-striped table-bordered">
             <thead>						
@@ -39,37 +40,103 @@
                 </tr>
             </thead>
             <tbody>
-                
+
                 <tr ng-repeat='user in data.data'>
                     <td  > {{user.username}} </td>
                     <td  > {{user.first_name}} </td>
                     <td  > {{user.last_name}} </td>
                     <td class="text-center"> <span> <button class="btn btn-warning" ng-click="details(user.id)" data-user-id="{{user.id}}"><i class="fa fa-bullseye"></i>  </button></span><span> <button class="btn btn-warning" ng-click="info(user.id)" data-user-id="{{user.id}}"><i class="fa fa-warning"></i>  </button></span>  <span><button class="btn btn-info " data-user-id="{{user.id}}" ng-click="lock(user.id)"><i class="fa fa-unlock-alt"></i>  </button></span> <span> <button class="btn btn-danger" data-user-id="{{user.id}}" ng-click="deleteUser(user.id)"><i class="fa fa-times"></i>  </button></span> </td>
                 </tr>
-                <!--<tr>
-                    <td  > User name 1 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 2 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 3 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 4 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 5 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 6 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr><tr>
-                    <td  > User name 7 </td>
-                    <td class="text-center"> <span> <a href="info.html" class="btn btn-warning"><i class="fa fa-warning"></i>  </a></span>  <span><a href="#" class="btn btn-info "><i class="fa fa-unlock-alt"></i>  </a></span> <span> <a href="#" class="btn btn-danger"><i class="fa fa-times"></i>  </a></span> </td>
-                </tr>-->
             </tbody>
         </table>
     </div>
 
 </div>
+
+<div class="add-user" ng-show="userAddSection == true">
+    <h2>Add User</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content">
+                <form class="form-horizontal" role="form" ng-submit="submitUser()" id="userForm">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="First Name" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Date fo birth</label>
+                        <div class="col-sm-9">
+                            <div class="input-group date">
+
+                                <input type="text" data-date-format="mm/dd/yyyy" id="date01" class="form-control date-picker" required="">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Phone</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputPassword3" placeholder="Phone" required="">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="Address" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="address" placeholder="Address" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="City" class="col-sm-3 control-label">City</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="city" placeholder="City" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="State" class="col-sm-3 control-label">State</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="state" placeholder="State" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="State" class="col-sm-3 control-label">Zip</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Zip" placeholder="Zip" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success">SAVE</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+
+    </div>
+
+</div>
+<!-- /#page-wrapper -->
