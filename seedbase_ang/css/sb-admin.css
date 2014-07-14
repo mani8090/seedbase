@@ -29,9 +29,10 @@ a:hover,a:focus{color:#087F3A}
 
 #page-wrapper {
     padding: 0 15px;
-  
+	min-height:500px;
     background-color: #fff;
 }
+.breadcrumb{ background:#fff;}
 
 @media(min-width:768px) {
     #page-wrapper {
@@ -136,7 +137,12 @@ a:hover,a:focus{color:#087F3A}
 .nav-third-level li a {
     padding-left: 52px;
 }
-
+.nav-minified{width: 45px!important; }
+.nav-minified .text,.nav-minified .arrow,.nav-minified  .sidebar-search{ display:none;}
+.full{ margin-left:45px!important;}
+.nav-minified  #side-menu li:hover .text {  background: none repeat scroll 0 0 #eee;  border: 1px solid #ccc;  display: inline-block!important;  left: 45px;  padding: 9px;  position: absolute;  top: 0;  width: 180px;  z-index: 99;}
+.info,.info:hover{ background:#fc0; color:#fff; padding:10px; margin-right:5px;}
+/*media qeuries*/
 @media(min-width:768px) {
     .navbar-static-side {
         z-index: 1;
@@ -346,9 +352,24 @@ table.dataTable thead .sorting:after {
   /* Set the fixed height of the footer here */
   height: 60px;
   background-color: #f5f5f5;
+  border-top:1px solid #dfdfdf;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{ background:#bbdeca;}
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{ background:#05ab4b;}
 .pagination > li > a, .pagination > li > span{ color:#05ab4b;}
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th{ background:#dff0d8;}
-.login-error{ color: red; margin-left: -15px;}
+.content{ margin-top:20px;}
+#dvLoading
+{
+   background:transparent url(../img/loading.gif) no-repeat center center;
+   height: 100px;
+   width: 100px;
+   position: fixed;
+   z-index: 1000;
+   left: 50%;
+   top: 50%;
+}
+.tab-content{ padding:15px;}
+.mt20{ margin-top:20px;}
+.list-group-item img,.panel-title img{ width:25px; margin-top:-5px;}
+.second-form{ display:none;}

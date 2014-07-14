@@ -1,0 +1,641 @@
+<div id="usersListDiv" ng-show="usersList == true">
+    <h2> Users List</h2>
+    <hr>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <h4 class="panel-title"> User 1 <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
+                </a>
+
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse ">
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs mt20" role="tablist">
+                        <li class="active"><a href="#home" role="tab" data-toggle="tab">User Names</a></li>
+                        <li><a href="#profile" role="tab" data-toggle="tab">Mobiles</a></li>
+                        <li><a href="#messages" role="tab" data-toggle="tab">Lisence Details</a></li>
+                        <li><a href="#settings" role="tab" data-toggle="tab">Logs</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    User 1 <span class="pull-right"><img src="img/profile.jpg"/></span>
+                                </li>
+                                <li class="list-group-item">User 2 <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Morbi leo risus <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Porta ac consectetur ac <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Vestibulum at eros <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="profile">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <form class="form-horizontal first-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>  <a class="btn btn-default pull-right edit" type="submit">Edit</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >343 4343 4234324 </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >EW!21wed</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >567567</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <form class="form-horizontal second-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a type="submit" class="btn btn-default btn-success">Save</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="settings">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" >
+                    <h4 class="panel-title">User 2 <span class="pull-right"><img src="img/profile.jpg"/></span>  </h4>
+                </a>
+
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs mt20" role="tablist">
+                        <li class="active"><a href="#home1" role="tab" data-toggle="tab">User Names</a></li>
+                        <li><a href="#profile1" role="tab" data-toggle="tab">Mobiles</a></li>
+                        <li><a href="#messages1" role="tab" data-toggle="tab">Lisence Details</a></li>
+                        <li><a href="#settings1" role="tab" data-toggle="tab">Logs</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home1">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    User 1 <span class="pull-right"><img src="img/profile.jpg"/></span>
+                                </li>
+                                <li class="list-group-item">User 2 <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Morbi leo risus <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Porta ac consectetur ac <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Vestibulum at eros <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="profile1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages1">
+                            <form class="form-horizontal first-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>  <a class="btn btn-default pull-right edit" type="submit">Edit</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >343 4343 4234324 </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >EW!21wed</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >567567</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <form class="form-horizontal second-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a type="submit" class="btn btn-default btn-success">Save</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="settings1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <h4 class="panel-title"> User 3 <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
+                </a>
+
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs mt20" role="tablist">
+                        <li class="active"><a href="#home2" role="tab" data-toggle="tab">User Names</a></li>
+                        <li><a href="#profile2" role="tab" data-toggle="tab">Mobiles</a></li>
+                        <li><a href="#messages2" role="tab" data-toggle="tab">Lisence Details</a></li>
+                        <li><a href="#settings2" role="tab" data-toggle="tab">Logs</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home2">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    User 1 <span class="pull-right"><img src="img/profile.jpg"/></span>
+                                </li>
+                                <li class="list-group-item">User 2 <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Morbi leo risus <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Porta ac consectetur ac <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Vestibulum at eros <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" id="profile2">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages2">
+                            <form class="form-horizontal first-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>  <a class="btn btn-default pull-right edit" type="submit">Edit</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >343 4343 4234324 </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >EW!21wed</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >567567</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <form class="form-horizontal second-form" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Name </label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Sadeep</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">UUID</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Location</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >hyderabad</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Number</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >Email</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <a type="submit" class="btn btn-default btn-success">Save</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="settings2">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>UUID</th>
+                                            <th>IMEI</th>
+                                            <th> Name</th>
+                                            <th>Carrier</th>
+                                            <th>Platform</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>45435 345634534 454</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5435 345634534 454</td>
+                                            <td>sid</td>
+                                            <td>@TwBootstrap</td>
+                                            <td>@TwBootstrap</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>@fat</td>
+                                            <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td >Larry the Bird</td>
+                                            <td >Larry the Bird</td>
+                                            <td>@twitter</td>
+                                            <td>@twitter</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

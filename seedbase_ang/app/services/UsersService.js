@@ -1,6 +1,6 @@
 'use strict';
-angular.module('HomeService', ['ngCookies']).
-    factory('homeService', function($http,$cookieStore) {
+angular.module('UsersService', ['ngCookies']).
+    factory('usersService', function($http,$cookieStore) {
         return {
             getUsers: function(hash) {          
                 return $http({

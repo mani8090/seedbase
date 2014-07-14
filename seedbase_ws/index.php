@@ -109,6 +109,8 @@ switch ($action) {
     case 'addUser':
                 echo '<pre>';
                 print_r($_REQUEST);
+                $ClientData = file_get_contents('php://input');
+                print_r($ClientData);
                 exit;
         break;
     default:

@@ -1,11 +1,11 @@
-var Seedbase = angular.module("Seedbase", ['HomeService','ngCookies']);
-Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore) {
+var Seedbase = angular.module("Seedbase", ['UsersService','ngCookies']);
+Seedbase.controller('UsersController', function ($scope,usersService,$cookieStore) {
     $scope.userDetails = false;
     $scope.userAddSection = false;
     $scope.usersList = true;
     if($cookieStore.get('userId') !== '' && typeof($cookieStore.get('userId')) !== 'undefined' ){
         $scope.username = decodeURIComponent(escape(window.atob( $cookieStore.get('userName') )));
-        homeService.getUsers('123312').
+        usersService.getUsers('123312').
             success(function(data, status, headers, config) {                    
                 $scope.loginErrorMessage ='';
                 $scope.data = data;
@@ -23,7 +23,7 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
         $cookieStore.put('userId','');
         $cookieStore.put('userHash','');
         $cookieStore.put('userName','');
-        homeService.logout('').
+        usersService.logout('').
                 success(function(data, status, headers, config){
                 
                 }).
@@ -35,7 +35,7 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
     $scope.deleteUser = function(id){
         if(!confirm("Are you sure want to delete this user?"))
             return false;
-        homeService.deleteUser(id,$cookieStore.get('userId')).
+        usersService.deleteUser(id,$cookieStore.get('userId')).
                 success(function(data,status,headers,config){
                     location.reload();
                 }).error(function(xhr,textStatus,errorThrown){
@@ -53,7 +53,7 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
     }
     $scope.details = function(id){
         $scope.userDetails = true;
-        homeService.getUserData(id,$cookieStore.get('userId')).
+        usersService.getUserData(id,$cookieStore.get('userId')).
                 success(function(data,status,headers,config){
                    // location.reload();
                 }).error(function(xhr,textStatus,errorThrown){
@@ -69,7 +69,7 @@ Seedbase.controller('HomeController', function ($scope,homeService,$cookieStore)
         console.log("Added");
         //console.log($('#userForm').serialize());
         //console.log($("form").serialize());
-        homeService.addUser($cookieStore.get('userId')).
+        usersService.addUser($cookieStore.get('userId')).
                 success(function(data,status,headers,config){
                    // location.reload();
                 }).error(function(xhr,textStatus,errorThrown){
@@ -86,9 +86,9 @@ $(document).ready(function(){
 
 Seedbase.config(function($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: 'app/views/users.html',
-        controller: 'HomeController',
-        service:'HomeService'
+        templateUrl: 'app/views/usersList.html',
+        controller: 'UsersController',
+        service:'UsersService'
     });
 });
 
