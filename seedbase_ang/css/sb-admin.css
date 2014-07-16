@@ -373,3 +373,4 @@ table.dataTable thead .sorting:after {
 .mt20{ margin-top:20px;}
 .list-group-item img,.panel-title img{ width:25px; margin-top:-5px;}
 .second-form{ display:none;}
+.login-error{ color: red; margin-left: -15px;}

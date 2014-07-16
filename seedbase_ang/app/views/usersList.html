@@ -3,119 +3,95 @@
     <hr>
     <button class="text-right btn btn-default" style="padding: 5px;margin: 5px;" ng-click="userAdd()">Add User</button>
     <br/>
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
+    <div class="panel-group" id="accordion" >
+        <div class="panel panel-default" ng-repeat='user in data.data'>
             <div class="panel-heading">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                    <h4 class="panel-title"> User 1 <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
+                    <h4 class="panel-title"> {{user.first_name}} <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
                 </a>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse ">
+            <div id="collapse{{$index}}" class="panel-collapse collapse ">
                 <div class="panel-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs mt20" role="tablist">
-                        <li class="active"><a href="#home" role="tab" data-toggle="tab">User Names</a></li>
-                        <li><a href="#profile" role="tab" data-toggle="tab">Mobiles</a></li>
-                        <li><a href="#messages" role="tab" data-toggle="tab">Lisence Details</a></li>
-                        <li><a href="#settings" role="tab" data-toggle="tab">Logs</a></li>
+                        <li class="active"><a href="#home{{$index}}" role="tab" data-toggle="tab">{{user.first_name}} {{user.last_name}}</a></li>
+                        <li><a href="#profile{{$index}}" role="tab" data-toggle="tab">Mobiles</a></li>
+                        <li><a href="#messages{{$index}}" role="tab" data-toggle="tab">Lisence Details</a></li>
+                        <li><a href="#settings{{$index}}" role="tab" data-toggle="tab">Logs</a></li>
                     </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="home">
+                        <div class="tab-pane active" id="home{{$index}}">
                             <ul class="list-group" >
-                                
-                                
-                                <li class="list-group-item">
-                                    User 1 <span class="pull-right"><img src="img/profile.jpg"/></span>
-                                </li>
-                                <li class="list-group-item">User 2 <span class="pull-right"><img src="img/profile.jpg"/></span></li>
-                                <li class="list-group-item">Morbi leo risus <span class="pull-right"><img src="img/profile.jpg"/></span></li>
-                                <li class="list-group-item">Porta ac consectetur ac <span class="pull-right"><img src="img/profile.jpg"/></span></li>
-                                <li class="list-group-item">Vestibulum at eros <span class="pull-right"><img src="img/profile.jpg"/></span></li>
+                                <li class="list-group-item">Email  : {{user.email}}</li>
+                                <li class="list-group-item">Mobile : {{user.mobile_no}}</li>
+                                <li class="list-group-item">Address:  {{user.address}}</li>
+                                <li class="list-group-item">City   :  {{user.city}}</li>
+                                <li class="list-group-item">State  : {{user.state}}</li>
+                                <li class="list-group-item">Zip    : {{user.zip}}</li>
                             </ul>
                         </div>
-                        <div class="tab-pane" id="profile">
+                        <div class="tab-pane" id="profile{{$index}}">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>UUID</th>
                                             <th>IMEI</th>
-                                            <th> Name</th>
-                                            <th>Carrier</th>
-                                            <th>Platform</th>
+                                            <th>Make</th>
+                                            <th>operating_system</th>
+                                            <th>Version</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>45435 345634534 454</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>5435 345634534 454</td>
-                                            <td>sid</td>
-                                            <td>@TwBootstrap</td>
-                                            <td>@TwBootstrap</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td >Larry the Bird</td>
-                                            <td >Larry the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                        <tr ng-repeat="mobile in user.mobiles">
+                                            <td>{{mobile.id}}</td>
+                                            <td>{{mobile.IMEI}}</td>
+                                            <td>{{mobile.make}}</td>
+                                            <td>{{mobile.operating_system}}</td>
+                                            <td>{{mobile.os_version}}</td>
+                                        </tr>                                        
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane" id="messages">
+                        <div class="tab-pane" id="messages{{$index}}">
                             <form class="form-horizontal first-form" role="form">
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Name </label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >Sadeep</label>  <a class="btn btn-default pull-right edit" type="submit">Edit</a>
+                                        <label for="inputEmail3" >{{user.license.name}}</label>  <a class="btn btn-default pull-right edit" type="submit">Edit</a>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >343 4343 4234324 </label>
+                                        <label for="inputEmail3" >{{user.license.IMEI}} </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">UUID</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >EW!21wed</label>
+                                        <label for="inputEmail3" >{{user.license.UUID}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Location</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >hyderabad</label>
+                                        <label for="inputEmail3" >{{user.license.location}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Number</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >567567</label>
+                                        <label for="inputEmail3" >{{user.license.number}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Email</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >Email</label>
+                                        <label for="inputEmail3" >{{user.license.email}}</label>
                                     </div>
                                 </div>
 
@@ -165,7 +141,7 @@
 
                             </form>
                         </div>
-                        <div class="tab-pane" id="settings">
+                        <div class="tab-pane" id="settings{{$index}}">
                             <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
