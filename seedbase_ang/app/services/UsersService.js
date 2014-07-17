@@ -37,8 +37,8 @@ angular.module('UsersService', ['ngCookies']).
                 var username = "mani";
                 return $http({
                     method:'POST',
-                    url:'http://localhost/seedbase_git/seedbase/seedbase_ws',
-                    data: "Username="+username,                    
+                    url:'http://localhost/seedbase_git/seedbase/seedbase_ws/?action=addUser',
+                    data: $('#userForm').serialize(),                    
                     headers:{
                         'Authorization':hash,
                         'Content-Type': 'application/x-www-form-urlencoded'

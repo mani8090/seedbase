@@ -66,18 +66,18 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
         $scope.usersList = false;
     }
     $scope.submitUser = function(){
-        console.log("Added");
-        //console.log($('#userForm').serialize());
-        //console.log($("form").serialize());
         usersService.addUser($cookieStore.get('userId')).
                 success(function(data,status,headers,config){
-                   // location.reload();
+                    location.reload();
                 }).error(function(xhr,textStatus,errorThrown){
                     
                 });
         return false;
     }
-    
+    $scope.addCancel = function(){
+        $scope.userAddSection = false;
+        $scope.usersList = true;
+    }
 });
 
 $(document).ready(function(){

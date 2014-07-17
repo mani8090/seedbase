@@ -26,7 +26,7 @@ Seedbase.controller('LoginController', function ($scope,loginService,$cookieStor
                         $cookieStore.put('userHash', crypted);
                         $cookieStore.put('userId', window.btoa(unescape(encodeURIComponent( data.userId ))));
                         $cookieStore.put('userName',window.btoa(unescape(encodeURIComponent( data.userName ))));
-                        location.href = 'home.html';
+                        location.href = 'users.html';
                     }
                     return false;
                 }).

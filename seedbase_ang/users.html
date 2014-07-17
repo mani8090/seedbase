@@ -9,6 +9,7 @@
         <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!-- SB Admin CSS - Include with every page -->
         <link href="css/sb-admin.css" rel="stylesheet">
+        <link href="css/datepicker.css" rel="stylesheet">
     </head>
     <body>
 
@@ -308,8 +309,8 @@
         <script src="js/sb-admin.js"></script>
 
 
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
-        <script src="js-map/scripts.js"></script>
+        <!--<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>-->
+        <!--<script src="js-map/scripts.js"></script>-->
         <!-- Page-Level Demo Scripts - Blank - Use for reference -->
         <script >
             $(document).ready(function() {
@@ -317,6 +318,9 @@
                     $('.first-form').hide();
                     $('.second-form').show();
                 });
+		setTimeout(function(){                    
+                  $('.date-picker').datepicker();  
+                },600);
             });
         </script>
 

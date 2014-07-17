@@ -100,42 +100,42 @@
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Name </label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >Sadeep</label>
+                                        <label for="inputEmail3" >{{user.license.name}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">IMEI</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" value="{{user.license.IMEI}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">UUID</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" value="{{user.license.UUID}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Location</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >hyderabad</label>
+                                        <label for="inputEmail3" >{{user.license.location}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Number</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" placeholder="43 4343 4234324" type="text" />
+                                        <input class="form-control" placeholder="43 4343 4234324" type="text" value="{{user.license.number}}" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 ">Email</label>
                                     <div class="col-sm-10">
-                                        <label for="inputEmail3" >Email</label>
+                                        <label for="inputEmail3" >{{user.license.email}}</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <a type="submit" class="btn btn-default btn-success">Save</a>
+                                        <input type="submit" class="btn btn-default btn-success" value="SAVE">
                                     </div>
                                 </div>
 
@@ -143,47 +143,10 @@
                         </div>
                         <div class="tab-pane" id="settings{{$index}}">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>UUID</th>
-                                            <th>IMEI</th>
-                                            <th> Name</th>
-                                            <th>Carrier</th>
-                                            <th>Platform</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>45435 345634534 454</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>5435 345634534 454</td>
-                                            <td>sid</td>
-                                            <td>@TwBootstrap</td>
-                                            <td>@TwBootstrap</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td >Larry the Bird</td>
-                                            <td >Larry the Bird</td>
-                                            <td>@twitter</td>
-                                            <td>@twitter</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <h4>Logged in details</h4>
+                                <ul class="list-group" >
+                                    <li class="list-group-item" ng-repeat="userLog in user.log">Last Logged on  : {{userLog.time}}</li>                                    
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -192,6 +155,94 @@
                 </div>
             </div>
         </div>
+    </div>
+
+</div>
+
+<div class="add-user" ng-show="userAddSection == true">
+    <h2>Add User</h2>
+    <hr>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content">
+                <form class="form-horizontal" role="form" ng-submit="submitUser()" id="userForm">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">First Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="firstname" id="inputEmail3" placeholder="First Name" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Last Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="lastname" id="inputEmail3" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Date fo birth</label>
+                        <div class="col-sm-9">
+                            <div class="input-group date">
+
+                                <input type="text" name="dob" data-date-format="mm/dd/yyyy" id="date01" class="form-control date-picker" required="">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-3 control-label">Phone</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="phone" class="form-control" id="inputPassword3" placeholder="Phone" required="">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="Address" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="address" class="form-control" id="address" placeholder="Address" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="City" class="col-sm-3 control-label">City</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="city" class="form-control" id="city" placeholder="City" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="State" class="col-sm-3 control-label">State</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="state" class="form-control" id="state" placeholder="State" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="State" class="col-sm-3 control-label">Zip</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="zip" class="form-control" id="Zip" placeholder="Zip" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-success">SAVE</button>
+                            <button type="button" class="btn btn-danger" ng-click="addCancel()">CANCEL</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+
     </div>
 
 </div>
