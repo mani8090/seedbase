@@ -1,4 +1,4 @@
-var Seedbase = angular.module("Seedbase", ['UsersService','ngCookies']);
+var Seedbase = angular.module("Seedbase", ['UsersService','ngCookies','ui.compat']);
 Seedbase.controller('UsersController', function ($scope,usersService,$cookieStore) {
     $scope.userDetails = false;
     $scope.userAddSection = false;
@@ -84,11 +84,29 @@ $(document).ready(function(){
    
 });
 
-Seedbase.config(function($routeProvider) {
+/*Seedbase.config(function($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'app/views/usersList.html',
         controller: 'UsersController',
         service:'UsersService'
     });
-});
+});*/
+Seedbase.config(['$stateProvider', function ($stateProvider) {
+    $stateProvider    
+    .state('/', {
+        url: "/", 
+        views: {
+            "MessagesView@": {
+                templateUrl: "app/views/messages.html",
+                controller: 'UsersController',
+                service:'UsersService'
+            },
+            "ContentView@": {
+                templateUrl: "app/views/usersList.html",
+                controller: 'UsersController',
+                service:'UsersService'
+            }
+        }
+    })
 
+}]);

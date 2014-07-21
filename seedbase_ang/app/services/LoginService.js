@@ -5,7 +5,7 @@ angular.module('LoginService', ['ngCookies']).
             login: function(hash) {          
                 return $http({
                     method: 'GET', 
-                    url: 'http://localhost/seedbase_git/seedbase/seedbase_ws?action=login',
+                    url: '/seedbase_git/seedbase/seedbase_ws?action=login',
                     headers:{
                         'Authorization':hash                       
                     },

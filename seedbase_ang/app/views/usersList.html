@@ -23,14 +23,45 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home{{$index}}">
-                            <ul class="list-group" >
-                                <li class="list-group-item">Email  : {{user.email}}</li>
-                                <li class="list-group-item">Mobile : {{user.mobile_no}}</li>
-                                <li class="list-group-item">Address:  {{user.address}}</li>
-                                <li class="list-group-item">City   :  {{user.city}}</li>
-                                <li class="list-group-item">State  : {{user.state}}</li>
-                                <li class="list-group-item">Zip    : {{user.zip}}</li>
-                            </ul>
+                            
+                            <form class="form-horizontal" role="form">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Email</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.email}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Mobile No</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.mobile_no}} </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Address</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.address}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">City</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.city}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">State</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.state}}</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-2 ">Zipcode</label>
+                                    <div class="col-sm-10">
+                                        <label for="inputEmail3" >{{user.zip}}</label>
+                                </div>
+                                </div>
+                            </form>                            
                         </div>
                         <div class="tab-pane" id="profile{{$index}}">
                             <div class="table-responsive">
