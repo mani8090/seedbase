@@ -134,6 +134,19 @@ switch ($action) {
                 echo $user_id;
                 exit;
         break;
+    case 'sendGeo':
+                        $response = array();
+                        $rawData = file_get_contents("php://input");
+                        $data = json_decode($rawData, true);
+                        $query = "INSERT INTO sb_user_location(`user_id`,`lattitude`,`lattitude`,`created_at`) VALUES('".$data['user_id']."','".$data['lattitude']."','".$data['longitude']."',NOW())";                        
+                        if(!mysql_query($query)){
+                            $response['status'] = "error";
+                        }
+                        else{
+                            $response['status'] = 'success';
+                        }
+                        echo json_encode($response);exit;
+                        break;
     default:
         break;
 }

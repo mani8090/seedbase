@@ -93,12 +93,12 @@ $(document).ready(function(){
 });*/
 Seedbase.config(['$stateProvider', function ($stateProvider) {
     $stateProvider    
-    .state('/', {
+    .state(' ', {
         url: "/", 
         views: {
             "MessagesView@": {
-                templateUrl: "app/views/messages.html",
-                controller: 'UsersController',
+                templateUrl: "app/views/header.html",
+                controller: 'HeaderController',
                 service:'UsersService'
             },
             "ContentView@": {
