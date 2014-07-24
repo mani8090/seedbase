@@ -68,7 +68,7 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
     $scope.submitUser = function(){
         usersService.addUser($cookieStore.get('userId')).
                 success(function(data,status,headers,config){
-                    location.reload();
+                    //location.reload();
                 }).error(function(xhr,textStatus,errorThrown){
                     
                 });

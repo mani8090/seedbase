@@ -196,7 +196,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="content">
-                <form class="form-horizontal" role="form" ng-submit="submitUser()" id="userForm">
+                <form class="form-horizontal" role="form" ng-submit="submitUser()" id="userForm" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">First Name</label>
                         <div class="col-sm-9">
@@ -261,7 +261,12 @@
                             <input type="text" name="zip" class="form-control" id="Zip" placeholder="Zip" required="">
                         </div>
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="State" class="col-sm-3 control-label">Upload image</label>
+                        <div class="col-sm-9">
+                            <input type="file" name="userImage" id="image" class="form-control" accept="image/jpg,image/gif">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
                             <button type="submit" class="btn btn-success">SAVE</button>
