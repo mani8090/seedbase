@@ -36,13 +36,13 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="users.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                                <a href="users.html#/"><i class="fa fa-home fa-fw"></i> Home</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-table fa-fw"></i>Push Notification</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-table fa-fw"></i>Licenses</a>
+                                <a href="#/licenses"><i class="fa fa-edit fa-fw"></i>Licenses</a>
                             </li>
 
                         </ul>
@@ -89,6 +89,8 @@
         <script src="app/controllers/UsersController.js"></script>
         <script src="app/controllers/HeaderController.js"></script>
         <script src="app/services/UsersService.js"></script>
+        <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+        <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
         <!-- Page-Level Plugin Scripts - Blank -->
 
@@ -107,9 +109,27 @@
                 });
 		setTimeout(function(){                    
                   $('.date-picker').datepicker();  
+                  $('#dataTables-example').dataTable();
+		tabletview();
+		$( window ).resize(function() {
+			tabletview();
+		});
+		function tabletview(){
+			var ww=document.body.clientWidth;
+			if(ww > 767 && ww < 1025){
+			  $('.navbar-static-side').addClass('nav-minified');
+			   $('#page-wrapper').addClass('full');
+			}
+		}
                 },600);
             });
         </script>
+        <script>
+    $(document).ready(function() {
+        
+		
+    });
+    </script>
 
     </body>   
 </html>

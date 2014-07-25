@@ -3,6 +3,7 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
     $scope.userDetails = false;
     $scope.userAddSection = false;
     $scope.usersList = true;
+    $scope.addMobileform = false;
     if($cookieStore.get('userId') !== '' && typeof($cookieStore.get('userId')) !== 'undefined' ){
         $scope.username = decodeURIComponent(escape(window.atob( $cookieStore.get('userName') )));
         usersService.getUsers('123312').
@@ -88,6 +89,12 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
         $scope.userAddSection = false;
         $scope.usersList = true;
     }
+    $scope.addMobile = function(){
+        $scope.addMobileform = true;
+    }
+    $scope.addMobileCancel = function(){
+        $scope.addMobileform = false;
+    }
 });
 
 $(document).ready(function(){
@@ -113,6 +120,21 @@ Seedbase.config(['$stateProvider', function ($stateProvider) {
             },
             "ContentView@": {
                 templateUrl: "app/views/usersList.html",
+                controller: 'UsersController',
+                service:'UsersService'
+            }
+        }
+    })
+    .state('/licenses', {
+        url: "/licenses", 
+        views: {
+            "MessagesView@": {
+                templateUrl: "app/views/header.html",
+                controller: 'HeaderController',
+                service:'UsersService'
+            },
+            "ContentView@": {
+                templateUrl: "app/views/licenses.html",
                 controller: 'UsersController',
                 service:'UsersService'
             }

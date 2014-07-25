@@ -4,7 +4,8 @@
     <button class="text-right btn btn-default" style="padding: 5px;margin: 5px;" ng-click="userAdd()">Add User</button>
     <br/>
     <div class="panel-group" id="accordion" >
-        <div class="panel panel-default" ng-repeat='user in data.data'>
+        <input type="text" ng-model="search.first_name">
+        <div class="panel panel-default" ng-repeat="user in data.data | filter:search">
             <div class="panel-heading">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
                     <h4 class="panel-title"> {{user.first_name}} <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
@@ -65,7 +66,9 @@
                             </form>                            
                         </div>
                         <div class="tab-pane" id="profile{{$index}}">
-                            <div class="table-responsive">
+                            
+                            <div class="table-responsive" ng-show="addMobileform == false">
+                                <a href="#/" ng-click="addMobile()" style="float: right;padding: 5px;">Edit Mobile</a>
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -86,6 +89,50 @@
                                         </tr>                                        
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="col-sm-8" ng-show="addMobileform == true">
+                                <form class="form-horizontal" role="form" ng-submit="addMobileCancel()" id="userForm" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">UUID</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="uuid" id="inputEmail3" placeholder="UUID" required="" value="{{user.mobiles[0].id}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">IMEI</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="imei" id="inputEmail3" placeholder="IMEI" required value="{{user.mobiles[0].IMEI}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Make</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="make" id="inputEmail3" placeholder="Make" required="" value="{{user.mobiles[0].make}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-3 control-label">Operating System</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="os" id="inputPassword3" placeholder="Operating System" required="" value="{{user.mobiles[0].operating_system}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-3 control-label">Version</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group date">
+
+                                                <input type="text" name="version" class="form-control" required="" value="{{user.mobiles[0].os_version}}">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-9">
+                                            <button type="submit" class="btn btn-success">SAVE</button>
+                                            <button type="button" class="btn btn-danger" ng-click="addMobileCancel()">CANCEL</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                         <div class="tab-pane" id="messages{{$index}}">
