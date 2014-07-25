@@ -13,6 +13,7 @@
             <div id="collapse{{$index}}" class="panel-collapse collapse ">
                 <div class="panel-body">
                     <!-- Nav tabs -->
+                    <div style="float:right;"><span> <button class="btn btn-warning" ng-click="terminate(user.id)" data-user-id="{{user.id}}"><i class="fa fa-warning"></i>  </button></span><span><button class="btn btn-info " data-user-id="{{user.id}}" ng-click="lock(user.id)"><i class="fa fa-unlock-alt"></i>  </button></span> <span> <button class="btn btn-danger" data-user-id="{{user.id}}" ng-click="deleteUser(user.id)"><i class="fa fa-times"></i>  </button></span></div>
                     <ul class="nav nav-tabs mt20" role="tablist">
                         <li class="active"><a href="#home{{$index}}" role="tab" data-toggle="tab">{{user.first_name}} {{user.last_name}}</a></li>
                         <li><a href="#profile{{$index}}" role="tab" data-toggle="tab">Mobiles</a></li>

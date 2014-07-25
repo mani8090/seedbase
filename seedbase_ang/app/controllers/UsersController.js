@@ -68,7 +68,17 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
     $scope.submitUser = function(){
         usersService.addUser($cookieStore.get('userId')).
                 success(function(data,status,headers,config){
+                    location.reload();
+                }).error(function(xhr,textStatus,errorThrown){
+                    
+                });
+        return false;
+    }
+    $scope.terminate = function(id){
+        usersService.terminateUser(id).
+                success(function(data,status,headers,config){
                     //location.reload();
+                    alert("User session has been terminated");
                 }).error(function(xhr,textStatus,errorThrown){
                     
                 });

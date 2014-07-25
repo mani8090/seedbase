@@ -45,6 +45,16 @@ angular.module('HomeService', ['ngCookies']).
                     },
                     async : false
                 })
+            },
+            terminateUser: function(id){
+                 return $http({
+                    method: 'GET', 
+                    url: 'http://localhost/seedbase_git/seedbase/seedbase_ws?action=terminateUser&id='+id,
+                    headers:{
+                        //'Authorization':hash                       
+                    },
+                    async : false
+                })
             }
         }
     });

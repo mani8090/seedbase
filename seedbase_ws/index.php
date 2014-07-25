@@ -2,13 +2,15 @@
 
 include 'include/db.php';
 $action = $_REQUEST['action'];
+$uuid = mysql_fetch_assoc(mysql_query("SELECT UUID() as uuid"));
+$uuid = str_replace("-", "", $uuid['uuid']);
 
-$insertUser  = mysql_query('INSERT INTO `sb_users`(`id`,`username`, `password`, `email`, `user_role`, `user_status`, `user_deleted`, `session_terminated`, `created_at`) VALUES (REPLACE(UUID(),"-",""),"admin@sb.com","d033e22ae348aeb5660fc2140aec35850c4da997","admin@sb.com","1","1","0","0",NOW())');
-                echo $user_id = mysql_insert_id();exit;
-                $insertUserInfoSql = mysql_query('INSERT INTO `sb_userinfo`(`id`,`user_id`, `first_name`, `last_name`, `mobile_no`, `address`, `city`, `state`, `zip`, `created_at`, `modified_at`, `created_by`) VALUES (UNHEX(REPLACE(UUID(),"-","")),"'.$user_id.'","'.$_REQUEST['firstname'].'","'.$_REQUEST['lastname'].'","'.$_REQUEST['phone'].'","'.$_REQUEST['address'].'","'.$_REQUEST['city'].'","'.$_REQUEST['state'].'","'.$_REQUEST['zip'].'",NOW(),NOW(),"1")');
-                echo $user_id;
+/*$insertUser  = mysql_query('INSERT INTO `sb_users`(`id`,`username`, `password`, `email`, `user_role`, `user_status`, `user_deleted`, `session_terminated`, `created_at`) VALUES ("'.$uuid.'","admin@sb.com","d033e22ae348aeb5660fc2140aec35850c4da997","admin@sb.com","1","1","0","0",NOW())');
 
-exit;
+                $insertUserInfoSql = mysql_query('INSERT INTO `sb_userinfo`(`id`,`user_id`, `first_name`, `last_name`, `mobile_no`, `address`, `city`, `state`, `zip`, `created_at`, `modified_at`, `created_by`) VALUES (REPLACE(UUID(),"-",""),"'.$uuid.'","Admin","Seedbase","123123123","Hyderabad","Hyd","Telangana","31231231",NOW(),NOW(),"1")');
+          
+
+exit;*/
 
 switch ($action) {
     case 'login':
@@ -156,6 +158,17 @@ switch ($action) {
                         }
                         echo json_encode($response);exit;
                         break;
+    case 'terminateUser':
+                            $id = $_GET['id'];
+                            $sql = mysql_query("UPDATE sb_users SET `session_terminated` = '1' where id=".$id);
+                            echo "success";exit;
+                            break;
+    case 'lockUser':
+                            $id = $_GET['id'];
+                            $sql = mysql_query("UPDATE sb_users SET `user_status` = '0' where id=".$id);
+                            echo "success";exit;
+                            break;
+                        
     default:
         break;
 }
