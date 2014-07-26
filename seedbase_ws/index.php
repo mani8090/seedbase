@@ -66,7 +66,7 @@ switch ($action) {
     case 'getUsers' :
                 
                 $response = array();
-                $selectUsersSql = "SELECT * FROM sb_users JOIN sb_userinfo on sb_users.id = sb_userinfo.user_id where sb_users.user_deleted=0";
+                $selectUsersSql = "SELECT * FROM sb_users JOIN sb_userinfo on sb_users.id = sb_userinfo.user_id where sb_users.user_deleted=0 AND user_role = 3";
                 $result = mysql_query($selectUsersSql);
 
                 if (!$result) {
@@ -93,6 +93,15 @@ switch ($action) {
                         $loggedResult = mysql_query($selectLoggedSql);
                         while ($loggedRow = mysql_fetch_assoc($loggedResult)) {
                             $response['data'][$row['id']]['log'][] = $loggedRow;
+                        }
+                        $selectLocationSql = "SELECT * FROM sb_user_location where sb_user_location.user_id=".$row['id'];
+                        $locationResult = mysql_query($selectLocationSql);
+                        while ($locationRow = mysql_fetch_assoc($locationResult)) {
+                            
+                            $place =  getPlaceName($locationRow['lattitude'],$locationRow['longitude']);
+                            $locationRow['place'] = $place;
+                            $response['data'][$row['id']]['location'][] = $locationRow;
+                            //$response['data'][$row['id']]['location'][]['location'] = $place;
                         }
                         //echo '<pre>';print_r($mobilesResult);exit;
                     }
@@ -171,6 +180,18 @@ switch ($action) {
                         
     default:
         break;
+}
+function getPlaceName($latitude, $longitude)
+{
+   //This below statement is used to send the data to google maps api and get the place  name in different formats. we need to convert it as required. 
+   $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='
+                                         .$latitude.','.$longitude.'&sensor=false');
+
+   
+   $output= json_decode($geocode);
+
+   //Here "formatted_address" is used to display the address in a user friendly format.
+   return $output->results[0]->formatted_address;
 }
 exit;
 ?>

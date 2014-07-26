@@ -4,11 +4,11 @@
     <button class="text-right btn btn-default" style="padding: 5px;margin: 5px;" ng-click="userAdd()">Add User</button>
     <br/>
     <div class="panel-group" id="accordion" >
-        <input type="text" ng-model="search.first_name">
+        <input type="text" ng-model="search.first_name" style="display:none;">
         <div class="panel panel-default" ng-repeat="user in data.data | filter:search">
             <div class="panel-heading">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}">
-                    <h4 class="panel-title"> {{user.first_name}} <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
+                    <h4 class="panel-title"> {{user.first_name}} {{user.last_name}} <span class="pull-right"><img src="img/profile.jpg"/></span></h4>
                 </a>
             </div>
             <div id="collapse{{$index}}" class="panel-collapse collapse ">
@@ -16,10 +16,11 @@
                     <!-- Nav tabs -->
                     <div style="float:right;"><span> <button class="btn btn-warning" ng-click="terminate(user.id)" data-user-id="{{user.id}}"><i class="fa fa-warning"></i>  </button></span><span><button class="btn btn-info " data-user-id="{{user.id}}" ng-click="lock(user.id)"><i class="fa fa-unlock-alt"></i>  </button></span> <span> <button class="btn btn-danger" data-user-id="{{user.id}}" ng-click="deleteUser(user.id)"><i class="fa fa-times"></i>  </button></span></div>
                     <ul class="nav nav-tabs mt20" role="tablist">
-                        <li class="active"><a href="#home{{$index}}" role="tab" data-toggle="tab">{{user.first_name}} {{user.last_name}}</a></li>
+                        <li class="active"><a href="#home{{$index}}" role="tab" data-toggle="tab">Info</a></li>
                         <li><a href="#profile{{$index}}" role="tab" data-toggle="tab">Mobiles</a></li>
                         <li><a href="#messages{{$index}}" role="tab" data-toggle="tab">Lisence Details</a></li>
                         <li><a href="#settings{{$index}}" role="tab" data-toggle="tab">Logs</a></li>
+                        <li><a href="#locations{{$index}}" role="tab" data-toggle="tab">Locations</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -225,6 +226,14 @@
                                 <h4>Logged in details</h4>
                                 <ul class="list-group" >
                                     <li class="list-group-item" ng-repeat="userLog in user.log">Last Logged on  : {{userLog.time}}</li>                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="locations{{$index}}">
+                            <div class="table-responsive">
+                                <h4>Last visited locations</h4>
+                                <ul class="list-group" >
+                                    <li class="list-group-item" ng-repeat="userLocation in user.location">Last Located at  : <b>{{userLocation.place}}</b></li>                                    
                                 </ul>
                             </div>
                         </div>

@@ -46,7 +46,16 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
     }
     
     $scope.lock = function(id){
-        alert(id);
+         if(!confirm("Are you sure want to lock this user?"))
+            return false;
+        usersService.lockUser(id).
+                success(function(data,status,headers,config){
+                    //location.reload();
+                    alert("User session has been locked");
+                }).error(function(xhr,textStatus,errorThrown){
+                    
+                });
+        return false;
     }
     
     $scope.info = function(id){
@@ -76,6 +85,8 @@ Seedbase.controller('UsersController', function ($scope,usersService,$cookieStor
         return false;
     }
     $scope.terminate = function(id){
+         if(!confirm("Are you sure want to terminate this user session?"))
+            return false;
         usersService.terminateUser(id).
                 success(function(data,status,headers,config){
                     //location.reload();
